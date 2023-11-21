@@ -265,7 +265,7 @@ async function renderUrlToImageAsync(browser, pageConfig, url, path) {
       content: `
         body {
           width: calc(${size.width}px / ${pageConfig.scaling});
-          height: calc(${size.height}px / ${pageConfig.scaling});
+          height: calc((${pageConfig.removeHeaderHeight}px + ${size.height}px) / ${pageConfig.scaling});
           transform-origin: 0 0;
           transform: scale(${pageConfig.scaling});
           overflow: hidden;
@@ -305,6 +305,7 @@ function convertImageToKindleCompatiblePngAsync(
       })
       .gamma(pageConfig.removeGamma ? 1.0/2.2 : 1.0)
       .dither(pageConfig.dither)
+      .crop(pageConfig.width, pageConfig.height, 0, pageConfig.removeHeaderHeight)
       .rotate("white", pageConfig.rotation)
       .type(pageConfig.colorMode)
       .level(pageConfig.blackLevel, pageConfig.whiteLevel)
