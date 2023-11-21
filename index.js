@@ -305,7 +305,7 @@ function convertImageToKindleCompatiblePngAsync(
       })
       .gamma(pageConfig.removeGamma ? 1.0/2.2 : 1.0)
       .dither(pageConfig.dither)
-      .crop(pageConfig.width, pageConfig.height, 0, pageConfig.removeHeaderHeight)
+      .crop(pageConfig.renderingScreenSize.width, pageConfig.renderingScreenSize.height, 0, pageConfig.removeHeaderHeight)
       .rotate("white", pageConfig.rotation)
       .type(pageConfig.colorMode)
       .level(pageConfig.blackLevel, pageConfig.whiteLevel)
