@@ -239,7 +239,7 @@ async function renderUrlToImageAsync(browser, pageConfig, url, path) {
 
     let size = {
       width: Number(pageConfig.renderingScreenSize.width),
-      height: Number(pageConfig.renderingScreenSize.height)
+      height: Number(pageConfig.renderingScreenSize.height) + Number(pageConfig.removeHeaderHeight)
     };
 
     if (pageConfig.rotation % 180 > 0) {
@@ -265,7 +265,7 @@ async function renderUrlToImageAsync(browser, pageConfig, url, path) {
       content: `
         body {
           width: calc(${size.width}px / ${pageConfig.scaling});
-          height: calc((${pageConfig.removeHeaderHeight}px + ${size.height}px) / ${pageConfig.scaling});
+          height: calc(${size.height}px / ${pageConfig.scaling});
           transform-origin: 0 0;
           transform: scale(${pageConfig.scaling});
           overflow: hidden;
