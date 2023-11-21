@@ -24,6 +24,7 @@ function getPagesConfig() {
           getEnvironmentVariable("RENDERING_SCREEN_HEIGHT", suffix) || 800,
         width: getEnvironmentVariable("RENDERING_SCREEN_WIDTH", suffix) || 600,
       },
+      removeHeaderHeight: getEnvironmentVariable("REMOVE_HEADER_HEIGHT", suffix) || 0,
       grayscaleDepth: getEnvironmentVariable("GRAYSCALE_DEPTH", suffix) || 8,
       removeGamma: getEnvironmentVariable("REMOVE_GAMMA", suffix) || false,
       blackLevel: getEnvironmentVariable("BLACK_LEVEL", suffix) || "0%",
